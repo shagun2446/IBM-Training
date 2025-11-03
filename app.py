@@ -6,8 +6,8 @@ import os
 from sklearn.preprocessing import LabelEncoder
 
 # Streamlit Page Configuration
-st.set_page_config(page_title="Salary Prediction App", page_icon="💰", layout="centered")
-st.title("💼 Employee Salary Prediction App")
+st.set_page_config(page_title="Salary Prediction App", layout="centered")
+st.title(" Employee Salary Prediction App")
 #st.write("Enter employee details below to predict their estimated salary:")
 
 # Define Classes
@@ -117,7 +117,7 @@ job_title = st.selectbox("Job Title", job_title_classes)
 experience = st.number_input("Years of Experience", min_value=0.0, max_value=50.0, value=5.0, step=0.5)
 
 # Predict Salary
-if st.button("🔮 Predict Salary"):
+if st.button(" Predict Salary"):
     try:
         if USE_PIPELINE:
             input_df = pd.DataFrame([[age, gender, education, job_title, experience]],
@@ -132,8 +132,9 @@ if st.button("🔮 Predict Salary"):
             input_scaled = scaler.transform(input_data)
             predicted_salary = model.predict(input_scaled)[0]
 
-        st.success(f"💰 Predicted Salary: ₹{predicted_salary:,.2f}")
+        st.success(f" Predicted Salary: ₹{predicted_salary:,.2f}")
 
     except Exception as e:
-        st.error(f"⚠️ Prediction Error: {e}")
+        st.error(f" Prediction Error: {e}")
+
 
